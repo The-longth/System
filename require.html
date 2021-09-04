@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查询系统</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        .el-row {
+        margin-bottom: 20px;
+        }
+        .el-col {
+            border-radius: 4px;
+        }
+        .bg-purple-dark {
+            background: #99a9bf;
+        }
+        .grid-content {
+            border-radius: 4px;
+            min-height: 36px;
+        }
+        .row-bg {
+            padding: 10px 0;
+            background-color: #f9fafc;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <!-- 引入vue -->
+    <script src="vue.js"></script>
+
+    <!-- 在vue之后引入ui -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+    <!-- 查询部分 -->
+    <div id="require">
+        <el-row>
+            <el-col :span="24">
+                <div class="grid-content bg-purple-dark">
+                    <h2>查询系统</h2>
+                </div>
+            </el-col>
+        </el-row>
+        <el-row>
+            <el-col :span="24">
+                <div class="grid-content bg-purple-dark">
+                    <input type="text" v-model="name" placeholder="请输入你的姓名" @input="name = name.replace(/[^\u4E00-\u9FA5]/g,'')"maxlength=7>
+                </div>
+            </el-col>
+        </el-row>
+        <el-row>
+            <el-col :span="24">
+                <div class="grid-content bg-purple-dark">
+                    <input type="text" v-model="number" placeholder="请输入你的学号" @input="number = number.replace(/[^\d]/g,'')"maxlength=10>
+                </div>
+            </el-col>
+        </el-row>
+        <el-row>
+            <el-col :span="24">
+                <div class="grid-content bg-purple-dark">
+                    <button v-on:click="See">查询</button>
+                </div>
+            </el-col>
+        </el-row>
+    </div>
+
+    <!-- 自己的js -->
+    <script src="require.js"></script>
+</body>
+</html>
